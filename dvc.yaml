@@ -1,0 +1,39 @@
+stages:
+  download:
+    cmd: python -m src.prepare --download-only
+    deps:
+      - src/prepare.py
+      - src/config.py
+    outs:
+      - data/credit.xls
+  prepare:
+    cmd: python -m src.prepare
+    deps:
+      - data/credit.xls
+      - src/prepare.py
+      - src/validation.py
+      - src/config.py
+    outs:
+      - data/train.csv
+      - data/test.csv
+      - reports/data.json
+  train:
+    cmd: python -m src.train
+    deps:
+      - data/train.csv
+      - data/test.csv
+      - reports/data.json
+      - src/train.py
+      - src/features.py
+      - src/validation.py
+      - src/config.py
+      - requirements.txt
+    outs:
+      - models/model.joblib
+      - reports/experiments.csv
+      - reports/test_predictions.csv
+      - reports/reference_predictions.csv
+      - reports/roc.png
+    metrics:
+      - reports/metrics.json:
+          cache: false

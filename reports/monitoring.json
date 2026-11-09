@@ -1,0 +1,6 @@
+{
+  "reference_rows": 24000,
+  "current_rows": 500,
+  "psi": 0.021399625223282134,
+  "description": "Сравнение train и 500 test через API, имитация нового потока"
+}

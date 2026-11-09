@@ -1,0 +1,7 @@
+*.csv -text
+*.ipynb -text
+*.joblib -text
+*.xls -text
+*.json text eol=lf
+*.yaml text eol=lf
+*.lock text eol=lf

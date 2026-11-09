@@ -1,0 +1,110 @@
+schema: '2.0'
+stages:
+  download:
+    cmd: python -m src.prepare --download-only
+    deps:
+    - path: src/config.py
+      hash: md5
+      md5: 8b2974e1e3a098793eba0a41a8af87a2
+      size: 311
+    - path: src/prepare.py
+      hash: md5
+      md5: e9ea75acabf563dae9354944b9045649
+      size: 2727
+    outs:
+    - path: data/credit.xls
+      hash: md5
+      md5: 25a64500f543274fd6c9db905bfeb968
+      size: 5539328
+  prepare:
+    cmd: python -m src.prepare
+    deps:
+    - path: data/credit.xls
+      hash: md5
+      md5: 25a64500f543274fd6c9db905bfeb968
+      size: 5539328
+    - path: src/config.py
+      hash: md5
+      md5: 8b2974e1e3a098793eba0a41a8af87a2
+      size: 311
+    - path: src/prepare.py
+      hash: md5
+      md5: e9ea75acabf563dae9354944b9045649
+      size: 2727
+    - path: src/validation.py
+      hash: md5
+      md5: 1a57fef681b3ccd1365061bbc2c3f886
+      size: 3214
+    outs:
+    - path: data/test.csv
+      hash: md5
+      md5: 5c6353d57e778683f277e35397e59786
+      size: 579859
+    - path: data/train.csv
+      hash: md5
+      md5: 960ec0aa23059bf78211636fe3e9664a
+      size: 2317568
+    - path: reports/data.json
+      hash: md5
+      md5: 1bf4d61be808f5d2cbe0bcb7ce0fe064
+      size: 599
+  train:
+    cmd: python -m src.train
+    deps:
+    - path: data/test.csv
+      hash: md5
+      md5: 5c6353d57e778683f277e35397e59786
+      size: 579859
+    - path: data/train.csv
+      hash: md5
+      md5: 960ec0aa23059bf78211636fe3e9664a
+      size: 2317568
+    - path: reports/data.json
+      hash: md5
+      md5: 1bf4d61be808f5d2cbe0bcb7ce0fe064
+      size: 599
+    - path: requirements.txt
+      hash: md5
+      md5: c3fac6e080a5dda658f841abe2309448
+      size: 337
+    - path: src/config.py
+      hash: md5
+      md5: 8b2974e1e3a098793eba0a41a8af87a2
+      size: 311
+    - path: src/features.py
+      hash: md5
+      md5: 9d2158b57d0779dc9e5e18694d12cbbe
+      size: 1608
+    - path: src/train.py
+      hash: md5
+      md5: 247ec38b96732d9209f793255ea797c0
+      size: 6400
+    - path: src/validation.py
+      hash: md5
+      md5: 1a57fef681b3ccd1365061bbc2c3f886
+      size: 3214
+    outs:
+    - path: models/model.joblib
+      hash: md5
+      md5: f649b630a7a735bb39fc37e8572bfc99
+      size: 148994
+    - path: reports/experiments.csv
+      hash: md5
+      md5: c310552ea25209415ecb6b45b4abd09f
+      size: 487
+    - path: reports/metrics.json
+      hash: md5
+      md5: 8a7cd0e202962f14f70b5439c451c689
+      size: 475
+    - path: reports/reference_predictions.csv
+      hash: md5
+      md5: 80d33ade813c067c4e318975cb005e71
+      size: 496031
+    - path: reports/roc.png
+      hash: md5
+      md5: 12721706e34cbb483348143aaba56712
+      size: 44287
+    - path: reports/test_predictions.csv
+      hash: md5
+      md5: 01dd99da317934d30c9b9e637ce8b1fb
+      size: 169782

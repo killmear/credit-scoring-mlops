@@ -1,0 +1,8 @@
+*
+!requirements-api.txt
+!src/
+!src/*.py
+!src/static/
+!src/static/**
+!models/
+!models/model.joblib

@@ -1,0 +1,18 @@
+{
+  "winner": "boosting_leaves7",
+  "threshold": 0.5,
+  "cv_roc_auc": 0.7848418947465863,
+  "test": {
+    "roc_auc": 0.7797658662511685,
+    "precision": 0.6680672268907563,
+    "recall": 0.359457422758101,
+    "f1": 0.46741793238608526
+  },
+  "runs": [
+    "2aba80b7bbd949e4a14c7f4ecbf1b78e",
+    "8d0429f84eae4d58a9bec50b451bafae",
+    "979753fa69944e2a89d8aa6fd19ee366",
+    "c066b74421c74950a5ee0ddfe443f6f8",
+    "190bd261314c4f559707a040981c83d4"
+  ]
+}
